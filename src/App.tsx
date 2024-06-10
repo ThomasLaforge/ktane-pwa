@@ -8,6 +8,7 @@ import SimonGame from "./routes/SimonGame";
 import SequenceFilsGame from "./routes/SequenceFilsGame";
 import MorseGame from "./routes/MorseGame";
 import MemoryGame from "./routes/MemoryGame";
+import ComplexStrings from "./routes/ComplexStrings";
 
 const browserRouter = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const browserRouter = createBrowserRouter([
   {
     path: "/memory-game",
     element: <MemoryGame />,
+  },
+  {
+    path: "/complex-strings-game",
+    element: <ComplexStrings />,
   },
 ]);
 

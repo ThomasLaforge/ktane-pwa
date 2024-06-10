@@ -11,6 +11,7 @@ export default function Home() {
       <Link to="/sequence-fils-game">Séquences de fils</Link>
       <Link to="/morse-game">Morse</Link>
       <Link to="/memory-game">Memory</Link>
+      <Link to="/complex-strings-game">Complex Strings</Link>
     </div>
   );
 }
