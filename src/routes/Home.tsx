@@ -9,6 +9,7 @@ export default function Home() {
       <Link to="/password-game">Passwords</Link>
       <Link to="/simon-game">Simon</Link>
       <Link to="/sequence-fils-game">Séquences de fils</Link>
+      <Link to="/morse-game">Morse</Link>
     </div>
   );
 }
