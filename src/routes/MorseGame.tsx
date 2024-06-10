@@ -100,8 +100,10 @@ export default function MorseGame() {
   }, [input]);
 
   const handleAddLetter = useCallback(() => {
-    setLetters([...letters, currentLetter]);
-    setInput("");
+    if (currentLetter !== "Aucune lettre trouvée" && currentLetter !== "") {
+      setLetters([...letters, currentLetter]);
+      setInput("");
+    }
   }, [input, letters, currentLetter]);
 
   const handleRemoveLetter = useCallback(
