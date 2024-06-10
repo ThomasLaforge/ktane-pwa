@@ -9,6 +9,7 @@ import SequenceFilsGame from "./routes/SequenceFilsGame";
 import MorseGame from "./routes/MorseGame";
 import MemoryGame from "./routes/MemoryGame";
 import ComplexStrings from "./routes/ComplexStrings";
+import MolettesMiniGame from "./routes/MolettesMiniGame";
 
 const browserRouter = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const browserRouter = createBrowserRouter([
   {
     path: "/complex-strings-game",
     element: <ComplexStrings />,
+  },
+  {
+    path: "/molettes-mini-game",
+    element: <MolettesMiniGame />,
   },
 ]);
 

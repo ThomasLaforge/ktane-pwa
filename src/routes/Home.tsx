@@ -12,6 +12,7 @@ export default function Home() {
       <Link to="/morse-game">Morse</Link>
       <Link to="/memory-game">Memory</Link>
       <Link to="/complex-strings-game">Complex Strings</Link>
+      <Link to="/molettes-mini-game">Molettes</Link>
     </div>
   );
 }
