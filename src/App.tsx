@@ -7,6 +7,7 @@ import PasswordGame from "./routes/PasswordGame";
 import SimonGame from "./routes/SimonGame";
 import SequenceFilsGame from "./routes/SequenceFilsGame";
 import MorseGame from "./routes/MorseGame";
+import MemoryGame from "./routes/MemoryGame";
 
 const browserRouter = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const browserRouter = createBrowserRouter([
   {
     path: "/morse-game",
     element: <MorseGame />,
+  },
+  {
+    path: "/memory-game",
+    element: <MemoryGame />,
   },
 ]);
 

@@ -10,6 +10,7 @@ export default function Home() {
       <Link to="/simon-game">Simon</Link>
       <Link to="/sequence-fils-game">Séquences de fils</Link>
       <Link to="/morse-game">Morse</Link>
+      <Link to="/memory-game">Memory</Link>
     </div>
   );
 }
