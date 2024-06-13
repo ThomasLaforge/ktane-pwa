@@ -12,7 +12,7 @@ const STEPS: IConsigne[][] = [
   [{ num: 4 }, { posStep: 1 }, { pos: 1 }, { posStep: 1 }],
   [{ numStep: 2 }, { numStep: 1 }, { pos: 3 }, { num: 4 }],
   [{ posStep: 1 }, { pos: 1 }, { posStep: 2 }, { posStep: 2 }],
-  [{ numStep: 1 }, { numStep: 2 }, { numStep: 3 }, { numStep: 4 }],
+  [{ numStep: 1 }, { numStep: 2 }, { numStep: 4 }, { numStep: 3 }],
 ];
 
 export default function MemoryGame() {
