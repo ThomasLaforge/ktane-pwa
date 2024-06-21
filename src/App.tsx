@@ -1,5 +1,5 @@
 import "./App.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
 import ButtonGame from "./routes/ButtonGame";
 import Home from "./routes/Home";
 import StringGame from "./routes/StringGame";
@@ -10,6 +10,7 @@ import MorseGame from "./routes/MorseGame";
 import MemoryGame from "./routes/MemoryGame";
 import ComplexStrings from "./routes/ComplexStrings";
 import MolettesMiniGame from "./routes/MolettesMiniGame";
+import Page from "./components/Page";
 
 const browserRouter = createBrowserRouter([
   {
@@ -18,39 +19,75 @@ const browserRouter = createBrowserRouter([
   },
   {
     path: "/button-game",
-    element: <ButtonGame />,
+    element: (
+      <Page>
+        <ButtonGame />
+      </Page>
+    ),
   },
   {
     path: "/string-game",
-    element: <StringGame />,
+    element: (
+      <Page>
+        <StringGame />
+      </Page>
+    ),
   },
   {
     path: "/password-game",
-    element: <PasswordGame />,
+    element: (
+      <Page>
+        <PasswordGame />
+      </Page>
+    ),
   },
   {
     path: "/simon-game",
-    element: <SimonGame />,
+    element: (
+      <Page>
+        <SimonGame />
+      </Page>
+    ),
   },
   {
     path: "/sequence-fils-game",
-    element: <SequenceFilsGame />,
+    element: (
+      <Page>
+        <SequenceFilsGame />
+      </Page>
+    ),
   },
   {
     path: "/morse-game",
-    element: <MorseGame />,
+    element: (
+      <Page>
+        <MorseGame />
+      </Page>
+    ),
   },
   {
     path: "/memory-game",
-    element: <MemoryGame />,
+    element: (
+      <Page>
+        <MemoryGame />
+      </Page>
+    ),
   },
   {
     path: "/complex-strings-game",
-    element: <ComplexStrings />,
+    element: (
+      <Page>
+        <ComplexStrings />
+      </Page>
+    ),
   },
   {
     path: "/molettes-mini-game",
-    element: <MolettesMiniGame />,
+    element: (
+      <Page>
+        <MolettesMiniGame />
+      </Page>
+    ),
   },
 ]);
 

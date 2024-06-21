@@ -1,4 +1,6 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
+
+import "../styles/_string.scss";
 
 const COLORS = ["red", "blue", "yellow", "white", "black"];
 
@@ -6,11 +8,27 @@ export default function StringGame() {
   const [fils, setFils] = useState(["red", "blue", "yellow"]);
   const [serialEndIsPair, setSerialEndIsPair] = useState(false);
 
-  const nbRed = useMemo(() => fils.filter((fil) => fil === "red").length, [fils]);
-  const nbBlue = useMemo(() => fils.filter((fil) => fil === "blue").length, [fils]);
-  const nbYellow = useMemo(() => fils.filter((fil) => fil === "yellow").length, [fils]);
-  const nbWhite = useMemo(() => fils.filter((fil) => fil === "white").length, [fils]);
-  const nbBlack = useMemo(() => fils.filter((fil) => fil === "black").length, [fils]);
+  const nbFils = useMemo(() => fils.length, [fils]);
+  const nbRed = useMemo(
+    () => fils.filter((fil) => fil === "red").length,
+    [fils]
+  );
+  const nbBlue = useMemo(
+    () => fils.filter((fil) => fil === "blue").length,
+    [fils]
+  );
+  const nbYellow = useMemo(
+    () => fils.filter((fil) => fil === "yellow").length,
+    [fils]
+  );
+  const nbWhite = useMemo(
+    () => fils.filter((fil) => fil === "white").length,
+    [fils]
+  );
+  const nbBlack = useMemo(
+    () => fils.filter((fil) => fil === "black").length,
+    [fils]
+  );
 
   const res = useMemo(() => {
     if (fils.length === 3) {
@@ -62,32 +80,66 @@ export default function StringGame() {
     }
   }, [fils, serialEndIsPair, nbRed, nbBlue, nbYellow, nbWhite, nbBlack]);
 
-  const handleChangeFils = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newNbFils = parseInt(event.target.value);
-    if (newNbFils >= 3 && newNbFils <= 6) {
-      setFils(new Array(newNbFils).fill("red"));
-    }
-  };
-
   const handleChangeFilColor = (index: number, color: string) => {
     const newFils = [...fils];
     newFils[index] = color;
     setFils(newFils);
   };
 
+  const removeFil = useCallback(() => {
+    setFils(fils.slice(0, -1));
+  }, [fils]);
+
+  const addFils = useCallback(() => {
+    setFils([...fils, "red"]);
+  }, [fils]);
+
   return (
     <div className="string-game">
       <h1>String Game</h1>
-      <label htmlFor="nb-fils">Nb Fils</label>
-      <input type="number" min={3} max={6} value={fils.length} onChange={handleChangeFils} />
-      <label htmlFor="is-pair">dernier chiffre du numéro de série est pair</label>
-      <input type="checkbox" checked={serialEndIsPair} onChange={() => setSerialEndIsPair(!serialEndIsPair)} />
+      <div className="params">
+        <div className="params-title">Observations :</div>
+        <div className="nb-fils-options">
+          <button
+            className="btn-less-fils"
+            onClick={removeFil}
+            disabled={nbFils === 3}
+          >
+            -
+          </button>
+          <div className="nb-fils">{nbFils}</div>
+          <button
+            className="btn-more-fils"
+            onClick={addFils}
+            disabled={nbFils === 6}
+          >
+            +
+          </button>
+        </div>
+        <div className="is-pair-options">
+          <label htmlFor="is-pair">
+            dernier chiffre du numéro de série est pair
+          </label>
+          <input
+            type="checkbox"
+            checked={serialEndIsPair}
+            onChange={() => setSerialEndIsPair(!serialEndIsPair)}
+          />
+        </div>
+      </div>
 
       <div className="wires">
         {fils.map((fil, index) => (
           <div className="fil-line" key={index}>
-            <div key={index} className={`wire ${fil}`} style={{ backgroundColor: fil }}></div>
-            <select onChange={(e) => handleChangeFilColor(index, e.target.value)} value={fil}>
+            <div
+              key={index}
+              className={`wire ${fil}`}
+              style={{ backgroundColor: fil }}
+            ></div>
+            <select
+              onChange={(e) => handleChangeFilColor(index, e.target.value)}
+              value={fil}
+            >
               {COLORS.map((color, colorIndex) => (
                 <option key={index + "-" + colorIndex} value={color}>
                   {color}

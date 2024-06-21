@@ -1,0 +1,38 @@
+.battery {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  rotate: 180deg;
+
+  .battery-box {
+    height: 70%;
+    width: 100%;
+    border: 2px solid white;
+    border-bottom: 1px solid white;
+    border-radius: 5px 5px 0 0;
+  }
+  .battery-bottom {
+    height: 25%;
+    width: 100%;
+    border: 2px solid white;
+    border-top: 1px solid white;
+    border-radius: 0 0 5px 5px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .battery-plus {
+      color: black;
+      line-height: 10px;
+      font-size: 10px;
+    }
+  }
+
+  .battery-tetine {
+    width: 20%;
+    border-bottom: 2px solid white;
+    border-radius: 0 0 20% 20%;
+  }
+}
