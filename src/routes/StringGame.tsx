@@ -96,9 +96,18 @@ export default function StringGame() {
 
   return (
     <div className="string-game">
-      <h1>String Game</h1>
+      <h1 className="string-game-title">String Game</h1>
       <div className="params">
-        <div className="params-title">Observations :</div>
+        <div className="is-pair-option">
+          <label htmlFor="is-pair">
+            Le dernier chiffre du numéro de série est pair
+          </label>
+          <input
+            type="checkbox"
+            checked={serialEndIsPair}
+            onChange={() => setSerialEndIsPair(!serialEndIsPair)}
+          />
+        </div>
         <div className="nb-fils-options">
           <button
             className="btn-less-fils"
@@ -116,16 +125,6 @@ export default function StringGame() {
             +
           </button>
         </div>
-        <div className="is-pair-options">
-          <label htmlFor="is-pair">
-            dernier chiffre du numéro de série est pair
-          </label>
-          <input
-            type="checkbox"
-            checked={serialEndIsPair}
-            onChange={() => setSerialEndIsPair(!serialEndIsPair)}
-          />
-        </div>
       </div>
 
       <div className="wires">
@@ -136,16 +135,18 @@ export default function StringGame() {
               className={`wire ${fil}`}
               style={{ backgroundColor: fil }}
             ></div>
-            <select
-              onChange={(e) => handleChangeFilColor(index, e.target.value)}
-              value={fil}
-            >
+            <div className="color-selector">
               {COLORS.map((color, colorIndex) => (
-                <option key={index + "-" + colorIndex} value={color}>
-                  {color}
-                </option>
+                <div
+                  key={index + "-" + colorIndex}
+                  className="color-selector-option"
+                  onClick={() => {
+                    handleChangeFilColor(index, color);
+                  }}
+                  style={{ backgroundColor: color }}
+                />
               ))}
-            </select>
+            </div>
           </div>
         ))}
       </div>
