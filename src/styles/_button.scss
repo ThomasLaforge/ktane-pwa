@@ -70,6 +70,9 @@
       .explose-batteries {
         display: flex;
         flex-direction: row;
+        .battery {
+          margin-inline: 2px;
+        }
       }
     }
 
@@ -120,6 +123,9 @@
       .frk-batteries {
         display: flex;
         flex-direction: row;
+        .battery {
+          margin-inline: 2px;
+        }
       }
     }
   }
