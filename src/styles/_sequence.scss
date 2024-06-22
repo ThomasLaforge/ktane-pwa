@@ -1,0 +1,40 @@
+.string-sequence-game {
+  flex: 1;
+
+  .sequence-add-colors {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .sequence-add-color-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-inline: 20px;
+      border-radius: 10%;
+      height: 50px;
+      width: 50px;
+    }
+  }
+  .sequence-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-block: 20px;
+
+    .sequence-number {
+      width: 20%;
+    }
+
+    .sequence-color {
+      width: 50px;
+      height: 50px;
+      border-radius: 10%;
+    }
+
+    .to-do {
+      flex: 1;
+    }
+  }
+}

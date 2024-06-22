@@ -1,18 +1,53 @@
 import { useState } from "react";
+import "../styles/_sequence.scss";
 
 enum Color {
   Red = "red",
   Blue = "blue",
-  Black = "black",
+  Black = "black"
 }
 
 const filsToCut: { [key in Color]: string[][] } = {
-  red: [["C"], ["B"], ["A"], ["A", "C"], ["B"], ["A", "C"], ["A", "B", "C"], ["A", "B"], ["B"]],
-  blue: [["B"], ["A", "C"], ["B"], ["A"], ["B"], ["B", "C"], ["C"], ["A", "C"], ["A"]],
-  black: [["A", "B", "C"], ["A", "C"], ["B"], ["A", "C"], ["B"], ["B", "C"], ["A", "B"], ["C"], ["C"]],
+  red: [
+    ["C"],
+    ["B"],
+    ["A"],
+    ["A", "C"],
+    ["B"],
+    ["A", "C"],
+    ["A", "B", "C"],
+    ["A", "B"],
+    ["B"]
+  ],
+  blue: [
+    ["B"],
+    ["A", "C"],
+    ["B"],
+    ["A"],
+    ["B"],
+    ["B", "C"],
+    ["C"],
+    ["A", "C"],
+    ["A"]
+  ],
+  black: [
+    ["A", "B", "C"],
+    ["A", "C"],
+    ["B"],
+    ["A", "C"],
+    ["B"],
+    ["B", "C"],
+    ["A", "B"],
+    ["C"],
+    ["C"]
+  ]
 };
 
-function getFilsToCut(sequence: string[], index: number, color: Color): string[] {
+function getFilsToCut(
+  sequence: string[],
+  index: number,
+  color: Color
+): string[] {
   const subSequence = sequence.slice(0, index + 1).filter((e) => e === color);
   return filsToCut[color][subSequence.length - 1];
 }
@@ -21,35 +56,55 @@ export default function SequenceFilsGame() {
   const [sequence, setSequence] = useState<Color[]>([]);
 
   return (
-    <div>
+    <div className="string-sequence-game">
       <h1>Séquences de fils</h1>
-      <div className="actions">
-        <button onClick={() => setSequence([])}>Réinitialiser</button>
-        <button onClick={() => setSequence(sequence.slice(0, -1))}>Supprimer le dernier fil</button>
-      </div>
+      <h2 className="sequence-add-colors-title">Ajouter</h2>
       <div className="sequence-add-colors">
-        <button onClick={() => setSequence([...sequence, Color.Red])}>Ajouter un fil rouge</button>
-        <button onClick={() => setSequence([...sequence, Color.Blue])}>Ajouter un fil bleu</button>
-        <button onClick={() => setSequence([...sequence, Color.Black])}>Ajouter un fil noir</button>
+        <div
+          className="sequence-add-color-btn"
+          style={{ backgroundColor: Color.Red }}
+          onClick={() => setSequence([...sequence, Color.Red])}
+        >
+          +
+        </div>
+        <div
+          className="sequence-add-color-btn"
+          style={{ backgroundColor: Color.Blue }}
+          onClick={() => setSequence([...sequence, Color.Blue])}
+        >
+          +
+        </div>
+        <div
+          className="sequence-add-color-btn"
+          style={{ backgroundColor: Color.Black }}
+          onClick={() => setSequence([...sequence, Color.Black])}
+        >
+          +
+        </div>
       </div>
       <h2>Séquence</h2>
       <div>
         {sequence
           .map((color, index) => (
             <div className="sequence-line">
+              <div className="sequence-number">{index + 1}</div>
               <div
                 key={index}
-                style={{
-                  width: 50,
-                  height: 50,
-                  backgroundColor: color,
-                  border: "1px solid black",
-                }}
+                className="sequence-color"
+                style={{ backgroundColor: color }}
               />
-              <div className="to-do">Couper {getFilsToCut(sequence, index, color).join(" ou ")}</div>
+              <div className="to-do">
+                Couper {getFilsToCut(sequence, index, color).join(" ou ")}
+              </div>
+              {index === sequence.length - 1 && (
+                <button onClick={() => setSequence(sequence.slice(0, -1))}>
+                  X
+                </button>
+              )}
             </div>
           ))
           .reverse()}
+        <button onClick={() => setSequence([])}>Réinitialiser</button>
       </div>
     </div>
   );
