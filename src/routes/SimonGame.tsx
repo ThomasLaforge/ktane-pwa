@@ -69,7 +69,7 @@ export default function SimonGame() {
           />
         </div>
         <div className="option option-nb-errors">
-          <label className="option-label">Nombre d'erreurs :</label>
+          <label className="option-label">Nombre d'erreurs : </label>
           <input
             className="option-input"
             type="number"
@@ -99,7 +99,7 @@ export default function SimonGame() {
         ))}
       </div>
 
-      <h3>Actuelle</h3>
+      <h2>Séquence de la malette</h2>
 
       <div className="sequence-render" style={{ display: "flex" }}>
         {colors.map((c, k) => (
@@ -124,7 +124,7 @@ export default function SimonGame() {
         reset
       </button>
 
-      <h2>A cliquer</h2>
+      <h2>Solution à appliquer</h2>
 
       <div className="solution-render" style={{ display: "flex" }}>
         {colorsToClick.map((c, key) => (
