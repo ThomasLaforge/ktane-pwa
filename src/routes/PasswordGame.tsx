@@ -1,4 +1,6 @@
 import { useMemo, useState } from "react";
+import "../styles/_passwords.scss";
+import { uniq, uniqStr } from "../tools";
 
 const words = [
   "abats",
@@ -35,48 +37,56 @@ const words = [
   "tasse",
   "valve",
   "vanne",
-  "vente",
-];
+  "vente"
+].map((w) => w.toUpperCase());
 
 export default function PasswordGame() {
   const [inputs, setInputs] = useState(["", "", "", "", ""]);
 
+  const uniqInputs = useMemo(() => {
+    return inputs.map((input) => uniqStr(input));
+  }, [inputs]);
+
   const solutions = useMemo(() => {
     let solutions: string[] = [];
 
-    for (let i = 0; i < inputs[0].length; i++) {
-      const letter = inputs[0][i];
+    for (let i = 0; i < uniqInputs[0].length; i++) {
+      const letter = uniqInputs[0][i].toUpperCase();
       solutions = [...solutions, ...words.filter((word) => word[0] === letter)];
     }
 
     for (let letterIndex = 1; letterIndex < words[0].length; letterIndex++) {
       let possibleWords: string[] = [];
-      if (inputs[letterIndex] !== "") {
-        for (let i = 0; i < inputs[letterIndex].length; i++) {
-          const letter = inputs[letterIndex][i];
-          possibleWords = [...possibleWords, ...solutions.filter((word) => word[letterIndex] === letter)];
+      if (uniqInputs[letterIndex] !== "") {
+        for (let i = 0; i < uniqInputs[letterIndex].length; i++) {
+          const letter = uniqInputs[letterIndex][i].toUpperCase();
+          possibleWords = [
+            ...possibleWords,
+            ...solutions.filter((word) => word[letterIndex] === letter)
+          ];
         }
         solutions = possibleWords;
       }
     }
 
     return solutions;
-  }, [inputs]);
+  }, [uniqInputs]);
 
   return (
-    <div className="app">
-      <h1>Passwords</h1>
-      <p>
-        Saisir dans le premier champ toutes les lettres possibles en première position, puis répétez l'opération pour
-        chaque positions jusqu'à ce qu'il ne reste qu'un seul mot possible.
+    <div className="password-game">
+      <h1 className="password-game-title">Passwords</h1>
+      <p className="password-game-rules">
+        Saisir dans le premier champ toutes les lettres possibles en première
+        position, puis répétez l'opération pour chaque positions jusqu'à ce
+        qu'il ne reste qu'un seul mot possible.
       </p>
 
       <div className="inputs">
         {inputs.map((input, index) => (
-          <div className="possibilities-input" key={index}>
-            <label htmlFor={"letters-" + index}>Possibilities letter {index + 1}</label>
+          <div className="possibilities-input-box" key={index}>
             <input
               value={input}
+              className="possibilities-input"
               onChange={(e) => {
                 const newInputs = [...inputs];
                 newInputs[index] = e.target.value;
@@ -88,11 +98,13 @@ export default function PasswordGame() {
       </div>
 
       <h2>Solutions</h2>
-      <ul>
+      <div className="possibilities">
         {solutions.map((solution, index) => (
-          <li key={index}>{solution}</li>
+          <div key={index} className="possibilities-elt">
+            <div className="possibility-text">{solution}</div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
