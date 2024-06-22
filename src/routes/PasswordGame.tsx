@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import "../styles/_passwords.scss";
 import { uniq, uniqStr } from "../tools";
 
@@ -42,6 +42,11 @@ const words = [
 
 export default function PasswordGame() {
   const [inputs, setInputs] = useState(["", "", "", "", ""]);
+  const firstForm = useRef<HTMLInputElement>();
+
+  useEffect(() => {
+    firstForm.current?.focus();
+  }, []);
 
   const uniqInputs = useMemo(() => {
     return inputs.map((input) => uniqStr(input));
@@ -86,6 +91,7 @@ export default function PasswordGame() {
           <div className="possibilities-input-box" key={index}>
             <input
               value={input}
+              ref={index === 0 ? firstForm : undefined}
               className="possibilities-input"
               onChange={(e) => {
                 const newInputs = [...inputs];
