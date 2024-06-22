@@ -15,6 +15,8 @@
     }
   }
 
+  $box_size: 90px;
+
   .colors-form,
   .sequence-render,
   .solution-render {
@@ -23,10 +25,11 @@
     justify-content: center;
     gap: 10px;
 
+    min-height: $box_size;
+
     .color-form-elt,
     .sequence-elt,
     .color-to-click {
-      $box_size: 90px;
       height: $box_size;
       width: $box_size;
 

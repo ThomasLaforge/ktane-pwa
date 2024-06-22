@@ -116,13 +116,15 @@ export default function SimonGame() {
         ))}
       </div>
 
-      <button
-        onClick={() => {
-          setColors([]);
-        }}
-      >
-        reset
-      </button>
+      {colors.length > 0 && (
+        <button
+          onClick={() => {
+            setColors([]);
+          }}
+        >
+          reset
+        </button>
+      )}
 
       <h2>Solution à appliquer</h2>
 
