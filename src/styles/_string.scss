@@ -5,7 +5,8 @@
   }
   .params {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     .nb-fils-options {
       display: flex;
@@ -51,6 +52,7 @@
           margin-inline: 10px;
           border: 2px solid white;
           border-radius: 5px;
+          cursor: pointer;
         }
       }
     }
