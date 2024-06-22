@@ -98,16 +98,6 @@ export default function StringGame() {
     <div className="string-game">
       <h1 className="string-game-title">String Game</h1>
       <div className="params">
-        <div className="is-pair-option">
-          <label htmlFor="is-pair">
-            Le dernier chiffre du numéro de série est pair
-          </label>
-          <input
-            type="checkbox"
-            checked={serialEndIsPair}
-            onChange={() => setSerialEndIsPair(!serialEndIsPair)}
-          />
-        </div>
         <div className="nb-fils-options">
           <button
             className="btn-less-fils"
@@ -125,6 +115,20 @@ export default function StringGame() {
             +
           </button>
         </div>
+        {((nbFils === 6 && nbYellow === 0) ||
+          (nbFils === 5 && fils[fils.length - 1] === "black") ||
+          (nbFils === 4 && nbRed > 1)) && (
+          <div className="is-pair-option">
+            <label htmlFor="is-pair">
+              Le dernier chiffre du numéro de série est pair
+            </label>
+            <input
+              type="checkbox"
+              checked={serialEndIsPair}
+              onChange={() => setSerialEndIsPair(!serialEndIsPair)}
+            />
+          </div>
+        )}
       </div>
 
       <div className="wires">
