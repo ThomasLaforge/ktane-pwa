@@ -104,7 +104,9 @@ export default function SequenceFilsGame() {
             </div>
           ))
           .reverse()}
-        <button onClick={() => setSequence([])}>Réinitialiser</button>
+        {sequence.length > 0 && (
+          <button onClick={() => setSequence([])}>Réinitialiser</button>
+        )}
       </div>
     </div>
   );
