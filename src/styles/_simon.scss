@@ -1,0 +1,66 @@
+.simon-game {
+  margin-block: 3em;
+  .simon-game-title {
+  }
+
+  .simon-game-options {
+    margin-block: 1em;
+    .option {
+      .option-label {
+      }
+      .option-input {
+      }
+    }
+    .option-has-voyelle {
+    }
+  }
+
+  .colors-form,
+  .sequence-render,
+  .solution-render {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+
+    .color-form-elt,
+    .sequence-elt,
+    .color-to-click {
+      $box_size: 50px;
+      height: $box_size;
+      width: $box_size;
+
+      text-align: center;
+      line-height: $box_size;
+
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 10%;
+    }
+
+    .color-form-elt-yellow {
+      color: black;
+    }
+  }
+
+  .colors-form {
+    .color-form-elt {
+      cursor: pointer;
+    }
+  }
+
+  .sequence-render {
+    margin-block: 1em;
+    .sequence-elt:nth-last-child(1) {
+      cursor: pointer;
+    }
+    .sequence-elt:nth-last-child(1).sequence-elt-yellow {
+      color: black;
+    }
+  }
+
+  .solution-render {
+    .color-to-click {
+    }
+  }
+}
