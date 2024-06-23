@@ -1,4 +1,5 @@
 import { useCallback, useMemo, useState } from "react";
+import "../styles/_morse.scss";
 
 const LETTERS_TO_MORSE: { [key: string]: string } = {
   A: ".-",
@@ -26,7 +27,7 @@ const LETTERS_TO_MORSE: { [key: string]: string } = {
   W: ".--",
   X: "-..-",
   Y: "-.--",
-  Z: "--..",
+  Z: "--.."
 };
 
 const WORDS_TO_FREQUENCIES: { [key: string]: number } = {
@@ -62,7 +63,7 @@ const WORDS_TO_FREQUENCIES: { [key: string]: number } = {
   SINGE: 582,
   PLUME: 592,
   PLUIE: 595,
-  SALLE: 600,
+  SALLE: 600
 };
 
 const WORDS = Object.keys(WORDS_TO_FREQUENCIES);
@@ -131,31 +132,44 @@ export default function MorseGame() {
   );
 
   return (
-    <div>
-      <h1>Morse</h1>
-      <div>
-        <label>
-          Entrer le code Morse :
-          <input value={input} onChange={(e) => setInput(e.target.value)} />
-          <div className="input-buttons">
-            <button onClick={() => setInput(input + ".")}>.</button>
-            <button onClick={() => setInput(input + "-")}>-</button>
-            <button onClick={() => setInput(input.slice(0, -1))}>&lt;-</button>
+    <div className="morse-game">
+      <h1 className="morse-game-title">Morse</h1>
+      <div className="morse-game-input">
+        <label>Entrer le code Morse :</label>
+
+        <input value={input} onChange={(e) => setInput(e.target.value)} />
+        <div className="input-buttons">
+          <div className="input-btn" onClick={() => setInput(input + ".")}>
+            .
           </div>
-        </label>
-        <p>{currentLetter}</p>
-        <button onClick={handleAddLetter}>Add Letter</button>
+          <div className="input-btn" onClick={() => setInput(input + "-")}>
+            -
+          </div>
+          <div
+            className="input-btn"
+            onClick={() => setInput(input.slice(0, -1))}
+          >
+            &lt;-
+          </div>
+        </div>
+        <p className="current-input-value">{currentLetter}</p>
+        <button className="input-action-add" onClick={handleAddLetter}>
+          Ajouter
+        </button>
       </div>
 
       <h2>Lettres</h2>
 
       <div className="letters-list">
         {letters.map((letter, index) => (
-          <div key={index}>
-            <div className="letter">{letter}</div>
-            <button className="button-remove-letter" onClick={() => handleRemoveLetter(index)}>
-              Supprimer
-            </button>
+          <div key={index} className="letter">
+            <div className="letter-value">{letter}</div>
+            <div
+              className="button-remove-letter"
+              onClick={() => handleRemoveLetter(index)}
+            >
+              X
+            </div>
           </div>
         ))}
       </div>
@@ -165,7 +179,8 @@ export default function MorseGame() {
       <div className="words-list">
         {possibleWords.map((word, index) => (
           <div key={index}>
-            {word} : 3.{WORDS_TO_FREQUENCIES[word]}MHz =&gt; {WORDS_TO_FREQUENCIES[word]}
+            {word} : 3.{WORDS_TO_FREQUENCIES[word]}MHz =&gt;{" "}
+            {WORDS_TO_FREQUENCIES[word]}
           </div>
         ))}
       </div>
@@ -175,7 +190,8 @@ export default function MorseGame() {
       <div className="words-list">
         {possibleWordsWithInput.map((word, index) => (
           <div key={index}>
-            {word} : 3.{WORDS_TO_FREQUENCIES[word]}MHz =&gt; {WORDS_TO_FREQUENCIES[word]}
+            {word} : 3.{WORDS_TO_FREQUENCIES[word]}MHz =&gt;{" "}
+            {WORDS_TO_FREQUENCIES[word]}
           </div>
         ))}
       </div>
