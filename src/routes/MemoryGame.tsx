@@ -12,7 +12,7 @@ const STEPS: IConsigne[][] = [
   [{ num: 4 }, { posStep: 1 }, { pos: 1 }, { posStep: 1 }],
   [{ numStep: 2 }, { numStep: 1 }, { pos: 3 }, { num: 4 }],
   [{ posStep: 1 }, { pos: 1 }, { posStep: 2 }, { posStep: 2 }],
-  [{ numStep: 1 }, { numStep: 2 }, { numStep: 4 }, { numStep: 3 }],
+  [{ numStep: 1 }, { numStep: 2 }, { numStep: 4 }, { numStep: 3 }]
 ];
 
 export default function MemoryGame() {
@@ -20,7 +20,8 @@ export default function MemoryGame() {
   const [values, setValues] = useState<number[]>([]);
   const [currentValue, setCurrentValue] = useState<number>(1);
   const [currentPosition, setCurrentPosition] = useState<number>(1);
-  const [currentValueAtPosition, setCurrentValueAtPosition] = useState<number>(1);
+  const [currentValueAtPosition, setCurrentValueAtPosition] =
+    useState<number>(1);
 
   const stepIndex = useMemo(() => {
     return positions.length;
@@ -34,7 +35,7 @@ export default function MemoryGame() {
       setCurrentPosition(consigne.pos);
     }
     if (consigne.num) {
-      setCurrentValue(consigne.num);
+      setCurrentValueAtPosition(consigne.num);
     }
     if (consigne.numStep) {
       setCurrentValueAtPosition(values[consigne.numStep - 1]);
