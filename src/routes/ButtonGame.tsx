@@ -17,7 +17,6 @@ export default function ButtonGame() {
               <div className="explose-batteries">
                 <Battery />
                 <Battery />
-                <Battery />
                 <div className="plus-symbole">+</div>
               </div>
             </div>
@@ -29,6 +28,7 @@ export default function ButtonGame() {
                   <div className="frk-activated" />
                 </div>
                 <div className="frk-batteries">
+                  <Battery />
                   <Battery />
                   <Battery />
                   <div className="plus-symbole">+</div>
