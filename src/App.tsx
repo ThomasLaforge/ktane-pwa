@@ -11,11 +11,12 @@ import MemoryGame from "./routes/MemoryGame";
 import ComplexStrings from "./routes/ComplexStrings";
 import MolettesMiniGame from "./routes/MolettesMiniGame";
 import Page from "./components/Page";
+import LogosGame from "./routes/LogosGame";
 
 const browserRouter = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Home />
   },
   {
     path: "/button-game",
@@ -23,7 +24,7 @@ const browserRouter = createBrowserRouter([
       <Page>
         <ButtonGame />
       </Page>
-    ),
+    )
   },
   {
     path: "/string-game",
@@ -31,7 +32,7 @@ const browserRouter = createBrowserRouter([
       <Page>
         <StringGame />
       </Page>
-    ),
+    )
   },
   {
     path: "/password-game",
@@ -39,7 +40,7 @@ const browserRouter = createBrowserRouter([
       <Page>
         <PasswordGame />
       </Page>
-    ),
+    )
   },
   {
     path: "/simon-game",
@@ -47,7 +48,7 @@ const browserRouter = createBrowserRouter([
       <Page>
         <SimonGame />
       </Page>
-    ),
+    )
   },
   {
     path: "/sequence-fils-game",
@@ -55,7 +56,7 @@ const browserRouter = createBrowserRouter([
       <Page>
         <SequenceFilsGame />
       </Page>
-    ),
+    )
   },
   {
     path: "/morse-game",
@@ -63,7 +64,7 @@ const browserRouter = createBrowserRouter([
       <Page>
         <MorseGame />
       </Page>
-    ),
+    )
   },
   {
     path: "/memory-game",
@@ -71,7 +72,7 @@ const browserRouter = createBrowserRouter([
       <Page>
         <MemoryGame />
       </Page>
-    ),
+    )
   },
   {
     path: "/complex-strings-game",
@@ -79,7 +80,7 @@ const browserRouter = createBrowserRouter([
       <Page>
         <ComplexStrings />
       </Page>
-    ),
+    )
   },
   {
     path: "/molettes-mini-game",
@@ -87,8 +88,16 @@ const browserRouter = createBrowserRouter([
       <Page>
         <MolettesMiniGame />
       </Page>
-    ),
+    )
   },
+  {
+    path: "/logos-game",
+    element: (
+      <Page>
+        <LogosGame />
+      </Page>
+    )
+  }
 ]);
 
 function App() {
