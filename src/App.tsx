@@ -12,6 +12,7 @@ import ComplexStrings from "./routes/ComplexStrings";
 import MolettesMiniGame from "./routes/MolettesMiniGame";
 import Page from "./components/Page";
 import LogosGame from "./routes/LogosGame";
+import WordsGridGame from "./routes/WordsGridGame";
 
 const browserRouter = createBrowserRouter([
   {
@@ -95,6 +96,14 @@ const browserRouter = createBrowserRouter([
     element: (
       <Page>
         <LogosGame />
+      </Page>
+    )
+  },
+  {
+    path: "/words-grid-game",
+    element: (
+      <Page>
+        <WordsGridGame />
       </Page>
     )
   }

@@ -10,6 +10,7 @@ export default function Page(props: PageProps) {
         <Link to="/button-game">Button</Link>
         <Link to="/string-game">String</Link>
         <Link to="/logos-game">Logos</Link>
+        <Link to="/words-grid-game">Words Grid</Link>
         <Link to="/sequence-fils-game">Séquences de fils</Link>
         <Link to="/morse-game">Morse</Link>
         <Link to="/simon-game">Simon</Link>
