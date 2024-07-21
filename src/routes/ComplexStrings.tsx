@@ -2,8 +2,10 @@ import { useMemo, useState } from "react";
 
 export default function ComplexStrings() {
   const [hasPortParralel, setHasPortParralel] = useState<boolean>(false);
-  const [isLastSerialNumberPair, setIsLastSerialNumberPair] = useState<boolean>(false);
-  const [hasAtLeastTwoBatteries, setHasAtLeastTwoBatteries] = useState<boolean>(false);
+  const [isLastSerialNumberPair, setIsLastSerialNumberPair] =
+    useState<boolean>(false);
+  const [hasAtLeastTwoBatteries, setHasAtLeastTwoBatteries] =
+    useState<boolean>(false);
   const [hasRed, setHasRed] = useState<boolean>(false);
   const [hasBlue, setHasBlue] = useState<boolean>(false);
   const [hasStar, setHasStar] = useState<boolean>(false);
@@ -61,7 +63,15 @@ export default function ComplexStrings() {
       }
     }
     return hasToCut ? "Couper" : "Ne pas couper";
-  }, [hasPortParralel, isLastSerialNumberPair, hasAtLeastTwoBatteries, hasRed, hasBlue, hasStar, hasLed]);
+  }, [
+    hasPortParralel,
+    isLastSerialNumberPair,
+    hasAtLeastTwoBatteries,
+    hasRed,
+    hasBlue,
+    hasStar,
+    hasLed
+  ]);
 
   return (
     <div className="app">
@@ -70,14 +80,20 @@ export default function ComplexStrings() {
         <div className="global-questions">
           <h2>Mallette</h2>
           <label>
-            <input type="checkbox" checked={hasPortParralel} onChange={() => setHasPortParralel(!hasPortParralel)} />
+            <input
+              type="checkbox"
+              checked={hasPortParralel}
+              onChange={() => setHasPortParralel(!hasPortParralel)}
+            />
             Port parallèle
           </label>
           <label>
             <input
               type="checkbox"
               checked={isLastSerialNumberPair}
-              onChange={() => setIsLastSerialNumberPair(!isLastSerialNumberPair)}
+              onChange={() =>
+                setIsLastSerialNumberPair(!isLastSerialNumberPair)
+              }
             />
             Dernier chiffre de série pair
           </label>
@@ -85,31 +101,50 @@ export default function ComplexStrings() {
             <input
               type="checkbox"
               checked={hasAtLeastTwoBatteries}
-              onChange={() => setHasAtLeastTwoBatteries(!hasAtLeastTwoBatteries)}
+              onChange={() =>
+                setHasAtLeastTwoBatteries(!hasAtLeastTwoBatteries)
+              }
             />
             Au moins deux piles
           </label>
           <div className="nota-bene-parallel-port">
-            NB : Un port parallèle avec deux rangées de plus de 6 trous chacune (12)
+            NB : Un port parallèle avec deux rangées de plus de 6 trous chacune
+            (12)
           </div>
         </div>
 
         <div className="string-questions">
           <h1>Fil :</h1>
           <label>
-            <input type="checkbox" checked={hasRed} onChange={() => setHasRed(!hasRed)} />
+            <input
+              type="checkbox"
+              checked={hasRed}
+              onChange={() => setHasRed(!hasRed)}
+            />
             Rouge
           </label>
           <label>
-            <input type="checkbox" checked={hasBlue} onChange={() => setHasBlue(!hasBlue)} />
+            <input
+              type="checkbox"
+              checked={hasBlue}
+              onChange={() => setHasBlue(!hasBlue)}
+            />
             Bleu
           </label>
           <label>
-            <input type="checkbox" checked={hasStar} onChange={() => setHasStar(!hasStar)} />
+            <input
+              type="checkbox"
+              checked={hasStar}
+              onChange={() => setHasStar(!hasStar)}
+            />
             Étoile
           </label>
           <label>
-            <input type="checkbox" checked={hasLed} onChange={() => setHasLed(!hasLed)} />
+            <input
+              type="checkbox"
+              checked={hasLed}
+              onChange={() => setHasLed(!hasLed)}
+            />
             LED
           </label>
         </div>

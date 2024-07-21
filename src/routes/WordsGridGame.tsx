@@ -429,7 +429,7 @@ const wordCorrespondingToWords = [
   {
     word: "OK",
     wordsList: [
-      "HON",
+      "THON",
       "FAIT",
       "COMME",
       "TONS",
@@ -490,7 +490,7 @@ export default function WordsGridGame() {
         onChange={(e) => setFilter(e.target.value)}
       />
       <div className="words-grid">
-        {filteredWords.length < 4 &&
+        {filteredWords.length < 5 &&
           filteredWords.map((word, index) => (
             <div key={index} className="word" id={word.word}>
               <div>mot: {word.word}</div>
