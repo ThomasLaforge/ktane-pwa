@@ -14,6 +14,7 @@ export default function Page(props: PageProps) {
         <Link to="/sequence-fils-game">Séquences de fils</Link>
         <Link to="/morse-game">Morse</Link>
         <Link to="/simon-game">Simon</Link>
+        <Link to="/maze-game">Maze</Link>
         <Link to="/memory-game">Memory</Link>
         <Link to="/complex-strings-game">Complex Strings</Link>
         <Link to="/password-game">Passwords</Link>

@@ -13,6 +13,7 @@ import MolettesMiniGame from "./routes/MolettesMiniGame";
 import Page from "./components/Page";
 import LogosGame from "./routes/LogosGame";
 import WordsGridGame from "./routes/WordsGridGame";
+import MazeGame from "./routes/MazeGame";
 
 const browserRouter = createBrowserRouter([
   {
@@ -104,6 +105,14 @@ const browserRouter = createBrowserRouter([
     element: (
       <Page>
         <WordsGridGame />
+      </Page>
+    )
+  },
+  {
+    path: "/maze-game",
+    element: (
+      <Page>
+        <MazeGame />
       </Page>
     )
   }
